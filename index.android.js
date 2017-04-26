@@ -9,15 +9,40 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
+
 import Login from './src/pages/Login';
 import Home from './src/pages/Home';
+import Register from './src/pages/Register';
+
 
 export default class weather extends Component {
+
+  constructor() {
+    super()
+
+    this.renderScene = this.renderScene.bind(this)
+  }
+
+  renderScene(route, navigator) {
+    switch (route.name) {
+      case 'loginPage':
+        return <Login navigator={navigator} />;
+      case 'registerPage':
+        return <Register navigator={navigator} />
+      default:
+        return <Home navigator={navigator} />
+    }
+  }
+
   render() {
     return (
-      <Home />
+      <Navigator
+          initialRoute={{name: 'homePage'}}
+          renderScene={this.renderScene}
+        />
     );
   }
 }

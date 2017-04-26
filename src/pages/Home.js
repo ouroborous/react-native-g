@@ -16,53 +16,45 @@ export default class Home extends Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {
-			loginButtonPressed: false,
-			registerButtonPressed: false
-		};
+		
+		this.navigate = this.navigate.bind(this)
+	}
+
+	navigate(name) {
+		this.props.navigator.push({name})
 	}
 	
-	handleLoginPress () {
-		this.setState({ loginButtonPressed: true });
-	}
-	handleRegisterPress () {
-		this.setState({ registerButtonPressed: true });
-	}
 	render () {
-		if (this.state.loginButtonPressed) {
-			return (
-				<Login />
-			);
-		} else {
-			return (
-				<View style={styles.content}>
-						<Container>
-							<Button
-								label="LOG IN"
-								styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
-								onPress={this.handleLoginPress.bind(this)} />
-						</Container>
-						<Container>
-							<Button
-								label="REGISTER"
-								styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
-								onPress={this.handleRegisterPress.bind(this)} />
-						</Container>
-						<Container>
-							<Button
-								label="CONTACT US"
-								styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
-								onPress={this.handleRegisterPress.bind(this)} />
-						</Container>
-						<Container>
-							<Button
-								label="ABOUT COACH!ME"
-								styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
-								onPress={this.handleRegisterPress.bind(this)} />
-						</Container>
-					</View>	
-			);
-		}
+		
+		return (
+			<View style={styles.content}>
+					<Container>
+						<Button
+							label="LOG IN"
+							styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
+							onPress={() => {this.navigate('loginPage')}} />
+					</Container>
+					<Container>
+						<Button
+							label="REGISTER"
+							styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
+							onPress={() => {this.navigate('registerPage')}} />
+					</Container>
+					<Container>
+						<Button
+							label="CONTACT US"
+							styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
+							onPress={() => {this.navigate('contactPage')}} />
+					</Container>
+					<Container>
+						<Button
+							label="ABOUT COACH!ME"
+							styles={{button: styles.whiteBorder, label: styles.buttonWhiteText}}
+							onPress={() => {this.navigate('aboutPage')}} />
+					</Container>
+				</View>	
+		);
+		
 	}
 }	
 

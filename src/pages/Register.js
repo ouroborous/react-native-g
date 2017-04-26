@@ -13,10 +13,11 @@ import Label from '../components/Label';
 import Home from './Home';
 
 
-export default class Login extends Component {
+export default class Register extends Component {
 
 	constructor() {
 		super()
+		
 	}
 
 	press() {}
@@ -33,12 +34,6 @@ export default class Login extends Component {
 					/>
 
 				<Container>
-					<Button 
-						label="Forgot Login/Pass"
-						styles={{button: styles.alignRight, label: styles.label}}
-						onPress={this.press.bind(this)} />
-				</Container>
-				<Container>
 					<Label text="Username or Email" />
 					<TextInput style={styles.textInput} />
 				</Container>
@@ -52,14 +47,8 @@ export default class Login extends Component {
 				<View style={styles.footer}>
 					<Container>
 						<Button
-							label="Sign In"
+							label="Register"
 							styles={{button: styles.primaryButton, label: styles.buttonWhiteText}}
-							onPress={this.press.bind(this)} />
-					</Container>
-					<Container>
-						<Button
-							label="CANCEL"
-							styles={{label: styles.buttonBlackText}}
 							onPress={this.press.bind(this)} />
 					</Container>
 				</View>
