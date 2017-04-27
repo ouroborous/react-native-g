@@ -9,8 +9,13 @@
   "dependencies": {
     "babel": "^6.23.0",
     "babel-polyfill": "^6.23.0",
+    "immutable": "^3.8.1",
     "react": "16.0.0-alpha.6",
-    "react-native": "0.43.4"
+    "react-dom": "^15.5.4",
+    "react-native": "0.43.4",
+    "react-native-clean-form": "^0.4.1",
+    "react-native-radio-button-classic": "0.0.5",
+    "react-native-simple-radio-button": "^2.4.2"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

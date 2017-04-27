@@ -7,17 +7,22 @@ import {
 	ScrollView
 } from 'react-native';
 
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import Container from '../components/Container';
 import Button from '../components/Button';
 import Label from '../components/Label';
 import Home from './Home';
 
-
+var radio_props = [
+  {label: 'English', value: 1 },
+  {label: 'Russian', value: 0 },
+  {label: 'Armenian', value: 0 }
+];
 export default class Register extends Component {
 
 	constructor() {
 		super()
-		
+		this.state = {value: 0}
 	}
 
 	press() {}
@@ -33,25 +38,29 @@ export default class Register extends Component {
 					label="Back"
 					/>
 
-				<Container>
-					<Label text="Username or Email" />
-					<TextInput style={styles.textInput} />
-				</Container>
-				<Container>
-					<Label text="Password" />
-					<TextInput
-						secureTextEntry={true}
-						style={styles.textInput}
-					/>
-				</Container>
-				<View style={styles.footer}>
-					<Container>
-						<Button
-							label="Register"
-							styles={{button: styles.primaryButton, label: styles.buttonWhiteText}}
-							onPress={this.press.bind(this)} />
-					</Container>
-				</View>
+        <Container>
+          <Label text="Choose your language" />
+          <RadioForm
+            radio_props={radio_props}
+            initial={0}
+            onPress={(value) => {this.setState({value:value})}}
+          />
+        </Container>
+        <Container>
+          <Label text="Name" />
+          <TextInput
+            secureTextEntry={true}
+            style={styles.textInput}
+            placeholder="Name"
+          />
+          <Label text="Surname" />
+          <TextInput
+            secureTextEntry={true}
+            style={styles.textInput}
+            placeholder="Surname"
+          />
+        </Container>
+          
 			</ScrollView>
 
 		);
