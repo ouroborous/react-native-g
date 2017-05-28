@@ -51,7 +51,7 @@ export default class Register extends Component {
 
     try {
   
-      let response = await fetch('http://192.168.137.1/gym/request/Auth.php', {
+      let response = await fetch('', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
